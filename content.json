@@ -34,6 +34,37 @@
       "companyDescription": "Universal Everything / LUKSO is developing the LUKSO blockchain, a next-generation blockchain platform designed for creative, lifestyle, and fashion industries."
     },
     {
+      "company": "Southworks",
+      "image": "/images/companies/southworks.png",
+      "role": "Software Engineering Team Lead",
+      "start": "2023-02",
+      "end": "2023-04",
+      "location": "Remote",
+      "description": "Backend Team Lead for 7-Eleven's End Device Manager, a critical platform that sends updates to points of sale worldwide. Led the team through a critical production crisis involving a failed deployment and migration from Node 12 to Node 16.",
+      "responsibilities": [
+        "Led team through critical production incident where deployment failed and rollback was impossible due to Node 12 end-of-life.",
+        "Architected and executed rapid migration strategy from Node 12 to Node 16 under tight time constraints.",
+        "Coordinated cross-functional efforts to restore production stability for a global point-of-sale update system.",
+        "Provided technical leadership and mentorship to team members during high-pressure incident resolution."
+      ],
+      "companyDescription": "Southworks is a global software development partner that brings dev-intensity to different organizations, delivering quick strategic wins to help accelerate, grow, and scale. They have big name clients such as: Microsoft, AWS."
+    },
+    {
+      "company": "Halborn",
+      "image": "/images/companies/halborn.jpg",
+      "role": "Senior Software Engineer",
+      "start": "2022-12",
+      "end": "2023-01",
+      "location": "Remote",
+      "description": "Contributed to the design of a blockchain notary system for transaction verification and security.",
+      "responsibilities": [
+        "Designed architecture for a blockchain notary system enabling third-party verification of transactions.",
+        "Worked on security mechanisms for transaction approval and rejection workflows.",
+        "Contributed to blockchain security infrastructure and Web3 solutions."
+      ],
+      "companyDescription": "Halborn is a leading blockchain cybersecurity firm providing penetration testing, smart contract audits, and security assessments for Web3 projects and cryptocurrency platforms."
+    },
+    {
       "company": "Proof of Attendance Protocol",
       "image": "/images/companies/poap.png",
       "role": "Senior Software Engineer",

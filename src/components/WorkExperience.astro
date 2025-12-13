@@ -7,6 +7,35 @@ function formatDate(dateString: string): string {
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   return `${monthNames[parseInt(month) - 1]} ${year}`;
 }
+
+// Helper function to calculate duration
+function calculateDuration(start: string, end: string): string {
+  const [startYear, startMonth] = start.split('-').map(Number);
+  let endYear: number, endMonth: number;
+
+  if (end === 'present') {
+    const now = new Date();
+    endYear = now.getFullYear();
+    endMonth = now.getMonth() + 1;
+  } else {
+    [endYear, endMonth] = end.split('-').map(Number);
+  }
+
+  let totalMonths = (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (years === 0) {
+    return months === 1 ? '1 mo' : `${months} mos`;
+  } else if (months === 0) {
+    return years === 1 ? '1 yr' : `${years} yrs`;
+  } else {
+    const yearText = years === 1 ? '1 yr' : `${years} yrs`;
+    const monthText = months === 1 ? '1 mo' : `${months} mos`;
+    return `${yearText} ${monthText}`;
+  }
+}
 ---
 
 <section id='exp' class='py-24 md:py-32 bg-base-100'>
@@ -34,7 +63,8 @@ function formatDate(dateString: string): string {
         {experience.map((job) => {
           const startDate = formatDate(job.start);
           const endDate = formatDate(job.end);
-          
+          const duration = calculateDuration(job.start, job.end);
+
           return (
             <article class='relative'>
               {/* To date above card - Hidden on mobile */}
@@ -42,7 +72,7 @@ function formatDate(dateString: string): string {
                 <div class='absolute left-6 transform -translate-x-1/2'>
                   <div class='w-3 h-3 rounded-full bg-primary shadow-lg border-2 border-base-100 z-20'></div>
                   <div class='absolute left-6 -top-1 text-xs font-medium text-base-content/70 whitespace-nowrap'>
-                    to {endDate}
+                    to {endDate} · {duration}
                   </div>
                 </div>
               </div>
@@ -53,7 +83,7 @@ function formatDate(dateString: string): string {
                   <!-- Mobile date display -->
                   <div class='sm:hidden mb-4 text-center'>
                     <span class='text-sm font-medium text-base-content/70 bg-primary/10 px-3 py-1 rounded-full'>
-                      {startDate} - {endDate}
+                      {startDate} - {endDate} · {duration}
                     </span>
                   </div>
                   
